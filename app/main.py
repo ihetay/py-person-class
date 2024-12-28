@@ -17,10 +17,14 @@ def create_person_list(people: list) -> list:
         current_person = Person.people[person["name"]]
 
         if "wife" in person and person["wife"]:
-            current_person.wife = Person.people[person["wife"]]
+            wife_instance = Person.people.get(person["wife"])
+            if wife_instance:
+                current_person.wife = wife_instance
 
-        elif "husband" in person and person["husband"]:
-            current_person.husband = Person.people[person["husband"]]
+        if "husband" in person and person["husband"]:
+            husband_instance = Person.people.get(person["husband"])
+            if husband_instance:
+                current_person.husband = husband_instance
 
     return person_list
 
