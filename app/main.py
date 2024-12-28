@@ -27,4 +27,3 @@ def create_person_list(people: list) -> list:
                 current_person.husband = husband_instance
 
     return person_list
-
